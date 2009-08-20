@@ -1,0 +1,48 @@
+﻿A { text-decoration: none; }
+A:Hover { text-decoration: underline; }
+body { font-family: Sans-Serif; font-size: 13px; background-color:#FCFFEA; }
+
+#div_main { background-color:#FFFFFF;width: 960px; margin-bottom:10px; margin-left: auto; margin-right: auto; margin-top: auto; }
+
+#div_head { background-color:#FFE311; height:175px; position:relative; }
+#div_head_pagename { position:absolute; top: 63px; left: 370px; font-size:33px; }
+#div_head_descr { position:absolute; top: 69px; left: 650px; width:160px; height: 21px;font-size:13px; }
+#div_head_login { position:absolute; top: 3px; left: 4px; width: 301px; }
+#div_head_menu_bar { width: 150px; height:25px; position:absolute;  }
+#navlist li { display: inline; list-style-type: none; padding-right: 20px;}
+#div_head_lang_bar { position:absolute; top: 3px; left: 890px; width: 70px; }
+
+#div_footer { top:35px; position:relative; text-align: center; }
+
+.handleContainer 
+{
+    float:right;
+    width:15px;
+    height:16px;
+    background-image:url(../img/HandleGrip.png);
+    cursor:se-resize;
+    overflow:hidden;
+    position:relative;
+    top:8px;
+}
+.resizeContainer 
+{
+    padding:0px;
+    border-style:solid;
+    border-width:1px;
+    border-color:#FFC83F;
+}
+
+
+
+.sociable-hovers {
+	opacity: .4;
+	-moz-opacity: .4;
+	filter: alpha(opacity=40);
+}
+
+.sociable-hovers:hover {
+	opacity: 1;
+	-moz-opacity: 1;
+	filter: alpha(opacity=100);
+}

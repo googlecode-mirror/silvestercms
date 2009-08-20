@@ -1,0 +1,44 @@
+ROADMAP
+
+Future: 0.2
+complete forum and related adminCP
+
+Future: 0.1
+complete blog, profile, pages and related adminCP
+
+Future: 0.1b1
+to be released on 22.08.2009 / 24.08.2009
+
+CHANGELOG
+
+TODO:
+-> features: category, tags
+
+20.08.2009:
+-> feature: avatar upload / avatars in general
+-> feature: language system
+-> added: de language
+-> added: en language
+-> fixes: username links to profiles
+-> fixes: profile only viewable/editable when logged in
+
+18.08.2009:
+-> feature: profiles
+-> feature: using avatars (blog, comments)
+-> fixes: links to profiles (blog, comments)
+-> fixes: slight changes for svn
+
+16.08.2009:
+-> feature: additional blog and pages admin functions
+-> feature: admin std options menu
+-> fixes: redone configuration files from single variables to multiarrays
+
+10.08.2009:
+-> feature: pages
+-> feature: additional blog functions
+-> fixes: more use of config.php
+-> fixes: redone some parts related to use of different urls and absolute paths
+
+08.08.2009:
+-> some blog functions + adminCP beginning
+-> ported mostly from asp.net
