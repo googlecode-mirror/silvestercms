@@ -19,6 +19,9 @@ include_once("./admin_incl_header.php");
 			<a href="?include=blog_articles">Articles</a>
 		</li>
 		<li>
+			<a href="?include=blog_cate">Categories</a>
+		</li>
+		<li>
 			Comments
 		</li>
 	</ul>

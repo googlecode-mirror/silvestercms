@@ -55,7 +55,16 @@
 				&lt;/p&gt;
 			</textarea><br /> <br />
 			Tags: <input type="text" name="tags" size="80"><br /><br />
-			Categories: <input type="text" name="cate" size="80">
+			Categories: <select name="cate" size="1">
+      <?php 
+      $sql = "SELECT * FROM sil_blog_categories"; 
+	  $result = mysql_query ($sql, $connectionid);
+	  while($row = mysql_fetch_assoc($result)) {
+	  	echo "<option>".$row[name]."</option>";
+	  }
+      ?>
+    	</select>&nbsp;&nbsp;or <a href="?include=blog_cate">click here to get to the category management</a>.
+
 			
 			<br /> <br />
 <input type="submit" value="Send">
@@ -74,8 +83,17 @@ $data = mysql_fetch_array ($result); ?>
 				<?php echo $data["content"]; ?>
 			</textarea><br /> <br />
 			Tags: <input type="text" name="tags" size="80" value="<?php echo $data["tags"]; ?>"><br /><br />
-			Categories: <input type="text" name="cate" size="80" value="<?php echo $data["categories"]; ?>">
-			
+			Categories: <select name="cate" size="1">
+      <?php 
+      $sql = "SELECT * FROM sil_blog_categories"; 
+	  $result = mysql_query ($sql, $connectionid);
+	  while($row = mysql_fetch_assoc($result)) {
+	  	echo "<option";
+	  	if ($row[name] == $data["categories"]) echo " selected";
+	  	echo ">".$row[name]."</option>";
+	  }
+      ?>
+    	</select>&nbsp;&nbsp;or <a href="?include=blog_cate">click here to get to the category management</a>.
 			<br /> <br />
 <input type="submit" value="Send">
 		</div>
