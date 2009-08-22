@@ -29,7 +29,7 @@ if($_POST["changed"]) {
 	echo "Die Änderungen wurden gespeichert.<br><br>";
 	$conf = $conf_new;
 }
-?><span style="color:red;">Changes related to MySQL or Path/Url on your own warranty.</span><br><br>
+?><span style="color:red;">Changes related to MySQL or Path/Url on your own risk.</span><br><br>
 <form action="index.php?include=options" method="post">
 	<input type="hidden" name="changed" value="true">
 	Page name: <input name="pagename" type="text" size="60" maxlength="" value="<?php echo $conf[Page][pagename]; ?>"><br>
@@ -45,5 +45,5 @@ if($_POST["changed"]) {
 	Captcha (Server needs to have gd module): <input name="options_captcha" type="text" size="50" maxlength="" value="<?php echo $conf[System][options_captcha]; ?>"><br>
 	Maintenance mode: <input name="maintenance" type="text" size="60" maxlength="" value="<?php echo $conf[System][maintenance]; ?>"><br>
 	Maintenance password: <input name="mainte_keyword" type="text" size="60" maxlength="" value="<?php echo $conf[System][mainte_keyword]; ?>"><br><br>
-	<input type="submit" value="Abschicken">
+	<input type="submit" value="Submit">
 </form>

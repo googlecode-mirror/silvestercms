@@ -12,7 +12,7 @@
 			border: 0px solid #000;
 			padding: 5px;">
 			<div style="float:left;left:5px;top:7px;position:relative;">
-				<?php echo get_lang("blog_cate"); ?>: <a href=index.php?category=<? echo $data["categories"]; ?>><? echo $data["categories"]; ?></a><br>
+				<?php echo get_lang("blog_cate"); ?>: <a href=index.php?category=<? echo preg_replace('/\s/', '%20', $data["categories"]); ?>><? echo $data["categories"]; ?></a><br>
 				<?php echo get_lang("blog_tags"); ?>: <a href=index.php?tag=<? echo $data["tags"]; ?>><? echo $data["tags"]; ?></a><br><br>
 			</div>
 			<div style="float:right;top:13px;position:relative;right:15px;">

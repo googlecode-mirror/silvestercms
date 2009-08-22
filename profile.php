@@ -92,7 +92,7 @@ if($data["profile_avatar"] !="") {
 	$data = mysql_fetch_array ($result);
 	if(isset($_SESSION["user_name"])) {
 ?>
-<tr><td colspan=2 style="background-color:orange;"><span><center><br />Profil von <?php echo $data["user"]; ?>
+<tr><td colspan=2 style="background-color:orange;"><span><center><br /><?php echo get_lang("profile_of"); ?> <?php echo $data["user"]; ?>
 <?php if($_SESSION["user_name"] == $data["user"]) { echo "<div style=position:absolute;left:635px;top:35px;>".get_lang("profile_edit_link")." <a href=profile.php?mode=edit>".get_lang("profile_edit_click")."</a></div>"; }?><br /><br /></center></span></td>
 </tr>
 <tr style="background-color:#F9F9F9;" valign=top>

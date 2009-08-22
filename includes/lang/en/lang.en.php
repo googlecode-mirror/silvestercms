@@ -64,6 +64,7 @@ $lang = array (
 		'profile_icq' => "ICQ",
 		'profile_msn' => "MSN",
 		'profile_jabber' => "Jabber",
+		'profile_of' => "Profile of",
 	),
 );
 

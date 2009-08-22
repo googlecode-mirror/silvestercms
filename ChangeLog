@@ -1,21 +1,25 @@
-ROADMAP
+r4 | marc.kastner | 2009-08-22 18:44:17 MESZ
 
-Future: 0.2
-complete forum and related adminCP
+put config_inc.php on svn:ignore
+----------------------------------------------------------------------------
+r3 | marc.kastner | 2009-08-22 18:25:25 MESZ
 
-Future: 0.1
-complete blog, profile, pages and related adminCP
+categories system for blog basically implemented
+----------------------------------------------------------------------------
+r2 | marc.kastner | 2009-08-20 18:22:22 MESZ
 
-Future: 0.1b1
-to be released on 22.08.2009 / 24.08.2009
+Initial commit
+----------------------------------------------------------------------------
+r1 | 2009-08-16 17:23:49 MESZ
 
-CHANGELOG
+Initial directory structure.
+----------------------------------------------------------------------------
 
-TODO:
--> features: category, tags
 
 22.08.2009:
 -> feature: categories system for blog is basically implemented
+-> fixed: some slight fixes according to blog category system
+-> fixed: redone some parts of install.php
 
 20.08.2009:
 -> feature: avatar upload / avatars in general
