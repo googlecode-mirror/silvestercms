@@ -87,6 +87,17 @@ $(document).ready(function() {
 <?php $sql = "SELECT * FROM sil_blog_articles WHERE ( id = ".$_GET["id"]." )"; 
 $result = mysql_query ($sql, $connectionid); 
 $data = mysql_fetch_array ($result); ?>
+ <script src="silvesterCMS/includes/js/jquery-1.3.2.min.js" type="text/javascript"></script>
+<script src="silvesterCMS/includes/js/jquery-ui-1.7.2.custom.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() { 
+	
+	$('input#mybutton').click(function() {
+		$('#tags').append($("#tags_input").val()+'; ');
+	});
+}); 
+
+</script>
 <form action="func_blog.php" method="post">
 <input type="hidden" name="edit" value="true" />
 <input type="hidden" name="id" value="<?php echo $_GET["id"]; ?>" />

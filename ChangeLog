@@ -544,6 +544,10 @@ Changed paths:
 Initial directory structure.
 ----------------------------------------------------------------------------
 
+23.08.2009 #2:
+-> fixes: tags javascript in edit-mode didn't work
+-> fixes: another annoying bug in install.php, now it should work
+
 23.08.2009:
 -> feature: added backup page in admincp
 -> feature: added template page in admincp

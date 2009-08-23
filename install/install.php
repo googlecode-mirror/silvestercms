@@ -1,5 +1,5 @@
 <?
-include("../config.php");
+include("../admin/config_inc.php");
 
 // Part 2 of Installation
 if($_POST[changed] == true) {
@@ -17,13 +17,15 @@ if($_POST[changed] == true) {
 		$file = fopen("../admin/config_inc.php", "w");
 		
 		$string = "<?php \$conf = ";
-		$string = $string.var_export($conf_new, true);
+		$string = $string.var_export($conf, true);
 		$string = $string."; ?>";
 		
 		fwrite($file, $string);
 		fclose($file);
 		echo "Die Änderungen wurden gespeichert.";
 
+		$connectionid = mysql_connect ($conf[DB][mysql_host], $conf[DB][mysql_user], $conf[DB][mysql_password]); 
+		mysql_select_db ($conf[DB][mysql_database], $connectionid);
 		mysql_query ("CREATE TABLE IF NOT EXISTS `sil_blog_articles` (
 		  `id` int(11) NOT NULL auto_increment,
 		  `autor` varchar(50) character set latin1 NOT NULL,
@@ -33,15 +35,15 @@ if($_POST[changed] == true) {
 		  `categories` varchar(50) character set latin1 NOT NULL,
 		  `creation_date` timestamp NOT NULL default CURRENT_TIMESTAMP,
 		  PRIMARY KEY  (`id`)
-		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=7 ;
+		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=7 ;");
 		
-		CREATE TABLE IF NOT EXISTS `sil_blog_categories` (
+		mysql_query ("CREATE TABLE IF NOT EXISTS `sil_blog_categories` (
 		  `id` int(11) NOT NULL auto_increment,
 		  `name` varchar(50) character set latin1 NOT NULL default 'Uncategorized',
 		  PRIMARY KEY  (`id`)
-		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
+		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;");
 		
-		CREATE TABLE IF NOT EXISTS `sil_blog_comments` (
+		mysql_query ("CREATE TABLE IF NOT EXISTS `sil_blog_comments` (
 		  `commentid` int(11) NOT NULL auto_increment,
 		  `blogid` int(11) NOT NULL,
 		  `autor` varchar(50) character set latin1 NOT NULL,
@@ -49,16 +51,16 @@ if($_POST[changed] == true) {
 		  `content` varchar(250) character set latin1 NOT NULL,
 		  `creation_date` timestamp NOT NULL default CURRENT_TIMESTAMP,
 		  PRIMARY KEY  (`commentid`)
-		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=12 ;
+		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=12 ;");
 		
-		CREATE TABLE IF NOT EXISTS `sil_pages` (
+		mysql_query ("CREATE TABLE IF NOT EXISTS `sil_pages` (
 		  `id` int(11) NOT NULL auto_increment,
 		  `title` varchar(50) character set latin1 NOT NULL,
 		  `content` text character set latin1 NOT NULL,
 		  PRIMARY KEY  (`id`)
-		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
+		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;");
 		
-		CREATE TABLE IF NOT EXISTS `sil_user` (
+		mysql_query ("CREATE TABLE IF NOT EXISTS `sil_user` (
 		  `id` int(11) NOT NULL auto_increment,
 		  `user` varchar(50) character set latin1 NOT NULL default '',
 		  `pass` varchar(50) character set latin1 NOT NULL default '',
@@ -75,7 +77,6 @@ if($_POST[changed] == true) {
 		  PRIMARY KEY  (`id`)
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=15 ;");
 		
-		
 		// Definition der Benutzer 
 		$benutzer[0]["user"] = "admin"; 
 		$benutzer[0]["pass"] = "admin";  
@@ -87,9 +88,9 @@ if($_POST[changed] == true) {
 		{ 
 		  // SQL-Anweisung erstellen 
 		  $sql = "INSERT INTO ".
-		    "sil_user (user,pass) ".
+		    "sil_user (user,pass,role) ".
 		  "VALUES ('".$value["user"]."', '".
-		                       md5 ($value["pass"])."')"; 
+		                       md5 ($value["pass"])."', 'Administrator')"; 
 		  mysql_query ($sql); 
 		
 		  if (mysql_affected_rows ($connectionid) > 0) 
