@@ -24,7 +24,7 @@ $page_num = ceil($row_num/$max_articles);
     	if(isset($_GET["category"]))
 			$getstring =  " WHERE ( categories = '".$_GET["category"]."') ";
 		else if(isset($_GET["tag"]))
-			$getstring =  " WHERE ( tags LIKE '%".$_GET["tag"]."%') ";
+			$getstring =  " WHERE ( tags LIKE '%".$_GET["tag"].";%') ";
 		else
 			$getstring =  "";
         $result2 = mysql_query("SELECT * FROM sil_blog_articles ".$getstring." ORDER BY creation_date DESC LIMIT 0,$max_articles", $connectionid);

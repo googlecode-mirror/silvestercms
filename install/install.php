@@ -2,7 +2,7 @@
 include("../config.php");
 
 // Part 2 of Installation
-if($_GET[changed] == 2) {
+if($_POST[changed] == true) {
 	?><h1>silvesterCMS <?php echo $verstring; ?>: Installation</h1><?php 
 		$conf[DB][mysql_host] = $_POST["mysql_host"];
 		$conf[DB][mysql_user] = $_POST ["mysql_user"];
@@ -24,30 +24,7 @@ if($_GET[changed] == 2) {
 		fclose($file);
 		echo "Die Änderungen wurden gespeichert.";
 
-		mysql_query ("
-		
-		-- phpMyAdmin SQL Dump
-		-- version 3.2.0.1
-		-- http://www.phpmyadmin.net
-		--
-		-- Host: localhost
-		-- Erstellungszeit: 22. August 2009 um 20:37
-		-- Server Version: 5.0.75
-		-- PHP-Version: 5.2.6-3ubuntu4.1
-		
-		SET SQL_MODE=NO_AUTO_VALUE_ON_ZERO;
-		
-		--
-		-- Datenbank: `silvesterSoft`
-		--
-		
-		-- --------------------------------------------------------
-		
-		--
-		-- Tabellenstruktur für Tabelle `sil_blog_articles`
-		--
-		
-		CREATE TABLE IF NOT EXISTS `sil_blog_articles` (
+		mysql_query ("CREATE TABLE IF NOT EXISTS `sil_blog_articles` (
 		  `id` int(11) NOT NULL auto_increment,
 		  `autor` varchar(50) character set latin1 NOT NULL,
 		  `title` varchar(50) character set latin1 NOT NULL,
@@ -58,23 +35,11 @@ if($_GET[changed] == 2) {
 		  PRIMARY KEY  (`id`)
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=7 ;
 		
-		-- --------------------------------------------------------
-		
-		--
-		-- Tabellenstruktur für Tabelle `sil_blog_categories`
-		--
-		
 		CREATE TABLE IF NOT EXISTS `sil_blog_categories` (
 		  `id` int(11) NOT NULL auto_increment,
 		  `name` varchar(50) character set latin1 NOT NULL default 'Uncategorized',
 		  PRIMARY KEY  (`id`)
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
-		
-		-- --------------------------------------------------------
-		
-		--
-		-- Tabellenstruktur für Tabelle `sil_blog_comments`
-		--
 		
 		CREATE TABLE IF NOT EXISTS `sil_blog_comments` (
 		  `commentid` int(11) NOT NULL auto_increment,
@@ -86,24 +51,12 @@ if($_GET[changed] == 2) {
 		  PRIMARY KEY  (`commentid`)
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=12 ;
 		
-		-- --------------------------------------------------------
-		
-		--
-		-- Tabellenstruktur für Tabelle `sil_pages`
-		--
-		
 		CREATE TABLE IF NOT EXISTS `sil_pages` (
 		  `id` int(11) NOT NULL auto_increment,
 		  `title` varchar(50) character set latin1 NOT NULL,
 		  `content` text character set latin1 NOT NULL,
 		  PRIMARY KEY  (`id`)
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
-		
-		-- --------------------------------------------------------
-		
-		--
-		-- Tabellenstruktur für Tabelle `sil_user`
-		--
 		
 		CREATE TABLE IF NOT EXISTS `sil_user` (
 		  `id` int(11) NOT NULL auto_increment,
@@ -120,9 +73,7 @@ if($_GET[changed] == 2) {
 		  `role` varchar(50) character set latin1 NOT NULL default 'User',
 		  `created` timestamp NOT NULL default CURRENT_TIMESTAMP,
 		  PRIMARY KEY  (`id`)
-		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=15 ;
-		
-		");
+		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=15 ;");
 		
 		
 		// Definition der Benutzer 

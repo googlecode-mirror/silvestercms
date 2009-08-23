@@ -73,7 +73,7 @@ include_once("./admin_incl_header.php");
 			<a href="?include=lang">Language packs</a>
 		</li>
 		<li>
-			Templates
+			<a href="?include=design">Templates</a>
 		</li>
 		<li>
 			Plugins

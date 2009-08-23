@@ -66,7 +66,7 @@ $(document).ready(function() {
 				Nam nisi elit, cursus in rhoncus sit amet, pulvinar laoreet leo. Nam sed lectus quam, ut sagittis tellus. Quisque dignissim mauris a augue rutrum tempor. Donec vitae purus nec massa vestibulum ornare sit amet id tellus. Nunc quam mauris, fermentum nec lacinia eget, sollicitudin nec ante. Aliquam molestie volutpat dapibus. Nunc interdum viverra sodales. Morbi laoreet pulvinar gravida. Quisque ut turpis sagittis nunc accumsan vehicula. Duis elementum congue ultrices. Cras faucibus feugiat arcu quis lacinia. In hac habitasse platea dictumst. Pellentesque fermentum magna sit amet tellus varius ullamcorper. Vestibulum at urna augue, eget varius neque. Fusce facilisis venenatis dapibus. Integer non sem at arcu euismod tempor nec sed nisl. Morbi ultricies, mauris ut ultricies adipiscing, felis odio condimentum massa, et luctus est nunc nec eros.
 				&lt;/p&gt;
 			</textarea><br /> <br />
-			Tags:<input type="text" id="tags_input" name="tags_input">&nbsp;<input type="button" id="mybutton" name="mybutton" value="Add"> 
+			Tags: <input type="text" id="tags_input" name="tags_input">&nbsp;<input type="button" id="mybutton" name="mybutton" value="Add"> 
 			<br/><br/><textarea id="tags" name="tags" cols="30" rows="3"></textarea>
 			<br/><br/>Categories: <select name="cate" size="1">
       <?php 
