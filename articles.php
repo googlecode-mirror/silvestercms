@@ -18,6 +18,12 @@ $sql = "SELECT * FROM sil_user WHERE ( user = '".$data[autor]."' )";
 $result = mysql_query ($sql, $connectionid); 
 $data_profile = mysql_fetch_array ($result);
 
+$tags = explode("; ",$data['tags']);
+reset($tags);
+$get_tags = " ";
+foreach($tags as $line => $value)
+{ $get_tags = $get_tags. "<a href=index.php?tag=".preg_replace('/\s/', '%20', $value).">".$value."</a>&nbsp;"; } 
+
 include_once($conf[System][path]."includes/templates/".$conf[Page][design]."/articles_article_self.php");
 
 // id, autor, title, content,tags,categories, creation_date
@@ -36,6 +42,7 @@ $page_num = ceil($row_num/$max_articles);
         		$sql = "SELECT * FROM sil_user WHERE ( user = '".$row[autor]."' )";	 
 				$result = mysql_query ($sql, $connectionid); 
 				$data = mysql_fetch_array ($result);
+				
 				include($conf[System][path]."includes/templates/".$conf[Page][design]."/articles_comments.php");
            }
 		   ?><br> <?php echo get_lang("general_page"); ?> <?
@@ -56,6 +63,7 @@ $page_num = ceil($row_num/$max_articles);
         		$sql = "SELECT * FROM sil_user WHERE ( user = '".$row[autor]."' )";	 
 				$result = mysql_query ($sql, $connectionid); 
 				$data = mysql_fetch_array ($result);
+
 				include($conf[System][path]."includes/templates/".$conf[Page][design]."/articles_comments.php");
             }
 			 ?><br> <?php echo get_lang("general_page"); ?> <?

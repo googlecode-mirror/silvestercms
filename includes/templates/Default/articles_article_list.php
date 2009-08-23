@@ -12,19 +12,11 @@
 			padding: 5px;">
 			<div style="float:left;left:5px;top:7px;position:relative;">
 				<?php echo get_lang("blog_cate"); ?>: <a href=index.php?category=<? echo preg_replace('/\s/', '%20', $row["categories"]); ?>><? echo $row['categories']; ?></a><br>
-				<?php echo get_lang("blog_tags"); ?>: <a href=index.php?tag=<? echo $row["tags"]; ?>><? echo $row['tags']; ?></a><br><br>
+				<?php echo get_lang("blog_tags"); ?>: <?php echo $get_tags; ?><br><br>
 			</div>
 			<div style="float:right;top:13px;position:relative;right:15px;">
-				<img class="sociable-hovers" src="includes/templates/Default/img/delicious11.png" style="width:20px; height:20px;"> 
 				<img class="sociable-hovers" src="includes/templates/Default/img/digg11.png" style="width:20px; height:20px;"> 
-				<img class="sociable-hovers" src="includes/templates/Default/img/facebook11.png" style="width:20px; height:20px;"> 
 				<img class="sociable-hovers" src="includes/templates/Default/img/flickr11.png" style="width:20px; height:20px;"> 
-				<img class="sociable-hovers" src="includes/templates/Default/img/friendfeed3.png" style="width:20px; height:20px;"> 
-				<img class="sociable-hovers" src="includes/templates/Default/img/linkedin1.png" style="width:20px; height:20px;"> 
-				<img class="sociable-hovers" src="includes/templates/Default/img/myspace3.png" style="width:20px; height:20px;"> 
-				<img class="sociable-hovers" src="includes/templates/Default/img/reddit13.png" style="width:20px; height:20px;"> 
-				<img class="sociable-hovers" src="includes/templates/Default/img/stumbleupon11.png" style="width:20px; height:20px;"> 
-				<img class="sociable-hovers" src="includes/templates/Default/img/technorati11.png" style="width:20px; height:20px;"> 
 				<img class="sociable-hovers" src="includes/templates/Default/img/twitter11.png" style="width:20px; height:20px;"> 
 			</div>
 			<div style="clear:both;"></div>

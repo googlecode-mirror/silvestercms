@@ -24,14 +24,19 @@ $page_num = ceil($row_num/$max_articles);
     	if(isset($_GET["category"]))
 			$getstring =  " WHERE ( categories = '".$_GET["category"]."') ";
 		else if(isset($_GET["tag"]))
-			$getstring =  " WHERE ( tags = '".$_GET["tag"]."') ";
+			$getstring =  " WHERE ( tags LIKE '%".$_GET["tag"]."%') ";
 		else
 			$getstring =  "";
         $result2 = mysql_query("SELECT * FROM sil_blog_articles ".$getstring." ORDER BY creation_date DESC LIMIT 0,$max_articles", $connectionid);
         while ($row = mysql_fetch_assoc($result2)) {
         		$sql = "SELECT * FROM sil_user WHERE ( user = '".$row[autor]."' )";	 
-$result = mysql_query ($sql, $connectionid); 
-$data_profile = mysql_fetch_array ($result);
+				$result = mysql_query ($sql, $connectionid); 
+				$data_profile = mysql_fetch_array ($result);
+				$tags = explode("; ",$row['tags']);
+				reset($tags);
+				$get_tags = " ";
+				foreach($tags as $line => $value)
+				{ $get_tags = $get_tags. "<a href=index.php?tag=".preg_replace('/\s/', '%20', $value).">".$value."</a>&nbsp;"; } 
 				include($conf[System][path]."includes/templates/".$conf[Page][design]."/articles_article_list.php");
             }
 			?><?php echo get_lang("general_page"); ?> <?
@@ -48,10 +53,15 @@ $data_profile = mysql_fetch_array ($result);
         $result2 = mysql_query("SELECT * FROM sil_blog_articles ORDER BY creation_date DESC LIMIT $start,$max_articles", $connectionid);
         while ($row = mysql_fetch_assoc($result2)) {
         	$sql = "SELECT * FROM sil_user WHERE ( user = '".$row[autor]."' )";	 
-$result = mysql_query ($sql, $connectionid); 
-$data_profile = mysql_fetch_array ($result);
-				include($conf[System][path]."includes/templates/".$conf[Page][design]."articles_article_list.php");
-            }
+			$result = mysql_query ($sql, $connectionid); 
+			$data_profile = mysql_fetch_array ($result);
+			$tags = explode("; ",$row['tags']);
+			reset($tags);
+			$get_tags = " ";
+			foreach($tags as $line => $value)
+			{ $get_tags = $get_tags. "<a href=index.php?tag=".preg_replace('/\s/', '%20', $value).">".$value."</a>&nbsp;"; } 
+			include($conf[System][path]."includes/templates/".$conf[Page][design]."/articles_article_list.php");
+		}
 			?><?php echo get_lang("general_page"); ?> <?
         for($c = 1;$c<($page_num +1);$c++)
             {
