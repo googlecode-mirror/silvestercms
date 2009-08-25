@@ -9,7 +9,7 @@
             
 
         </div>
-           
+<!-- This part is just saved for future chat system, TODO: Remove it before release -->           
 <div id="ctl00_PanelContainer" class="ui-widget-content" style="height:189px;width:380px;">
     <div id="ctl00_PanelHeader" class="ui-widget-header" style="height:15px;">  
         <div style="float:left">Chat mit "Andere Person"</div>

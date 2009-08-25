@@ -543,6 +543,13 @@ Changed paths:
 
 Initial directory structure.
 ----------------------------------------------------------------------------
+25.08.2009:
+-> added: started implementing user management + user roles management
+-> fixes: some bugs in language files
+-> fixes: removed some parts of tinymce to make silvestercms smaller
+
+when user management + user roles management is implemented, 
+the revision will be retagged as 0.1b1
 
 23.08.2009 #2:
 -> fixes: tags javascript in edit-mode didn't work

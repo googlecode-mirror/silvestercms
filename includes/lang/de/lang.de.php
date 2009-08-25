@@ -52,7 +52,7 @@ $lang = array (
 		'system_maintenance_2' => " befindet sich im Wartungsmodus.",
 
 		'profile_loggedin_edit' => "Sie muessen eingeloggt sein, um ihr Profil editieren zu koennen.",
-		'profile_loggedin_edit' => "Sie muessen eingeloggt sein, um Profile anschauen zu koennen.",
+		'profile_loggedin_view' => "Sie muessen eingeloggt sein, um Profile anschauen zu koennen.",
 		'profile_upload' => "Avatar hochladen",
 		'profile_upload_succ' => "Die Datei ist gŸltig und wurde erfolgreich hochgeladen.",
 		'profile_upload_err' => "Mšgliche Attacke, Datei wurde nicht hochgeladen!",
@@ -65,6 +65,10 @@ $lang = array (
 		'profile_msn' => "MSN",
 		'profile_jabber' => "Jabber",
 		'profile_of' => "Profil von",
+
+		'login_forgot' => "Sie haben ihr Passwort vergessen?",
+		'login_forgot2' => "klicken Sie hier!",
+		'login_forgot_text' => "Geben Sie ihren Benutzernamen oder ihre Emailadresse bitte ein, damit das Passwort ihnen an ihre angegebene E-Mailadresse zugeschickt werden kann: ",
 	),
 );
 ?>

@@ -52,7 +52,7 @@ $lang = array (
 		'system_maintenance_2' => " is in maintenance mode.",
 
 		'profile_loggedin_edit' => "You must be logged in to edit your profile.",
-		'profile_loggedin_edit' => "You must be logged in to view profiles.",
+		'profile_loggedin_view' => "You must be logged in to view profiles.",
 		'profile_upload' => "Upload Avatar",
 		'profile_upload_succ' => "File is valid, and was successfully uploaded.",
 		'profile_upload_err' => "Possible file upload attack!",

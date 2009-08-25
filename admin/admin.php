@@ -46,13 +46,21 @@ include_once("./admin_incl_header.php");
 	</ul>
 </ul>
 <ul>
+	<li>Users</li>
+	<ul>
+		<li>
+			<a href="?include=user">Users</a>
+		</li>
+		<li>
+			<a href="?include=roles">User Roles</a>
+		</li>
+	</ul>
+</ul>
+<ul>
 	<li>System</li>
 	<ul>
 		<li>
 			<a href="?include=options">Options</a>
-		</li>
-		<li>
-			<a href="?include=user">Users</a>
 		</li>
 		<li>
 			<a href="?include=logs">DEBUG / Logs</a>
