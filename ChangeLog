@@ -543,6 +543,19 @@ Changed paths:
 
 Initial directory structure.
 ----------------------------------------------------------------------------
+
+26.08.2009:
+-> added: some parts of user role system to install.php
+-> added: maintenance mode admin page
+-> added: already done in last revision, but forgot to put it in changelog: started implementing "password forgot" function in login.php
+-> changed: autor id instead of autor name in sql (blog, comments). due to this change, this commit won't be compatible with older versions.
+
+TODO until first release:
+-> Archive for Blog
+-> User/Role System for adminCP
+-> Privileges for Role System
+-> Rest of Forgot PW Function
+
 25.08.2009:
 -> added: started implementing user management + user roles management
 -> fixes: some bugs in language files

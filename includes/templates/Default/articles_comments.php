@@ -10,7 +10,7 @@ if($data["profile_avatar"] !="") {
 			</div>
 			<div style="float:right;width:495px;"><br />
 				<span style="font-size:18px;"><? echo $row["title"]; ?></span><br>
-				<span style="font-size:10px;"><?php echo get_lang("general_by"); ?> <a href=profile.php?id=<? echo $data[id]; ?>><? echo $row["autor"]; ?></a> <?php echo get_lang("general_on"); ?> <? echo $row["creation_date"]; ?></span><br>
+				<span style="font-size:10px;"><?php echo get_lang("general_by"); ?> <a href=profile.php?id=<? echo $data[id]; ?>><? echo $data[user]; ?></a> <?php echo get_lang("general_on"); ?> <? echo $row["creation_date"]; ?></span><br>
 				<br>
 				<? echo $row["content"]; ?>
 			</div>

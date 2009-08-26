@@ -60,13 +60,16 @@ include_once("./admin_incl_header.php");
 	<li>System</li>
 	<ul>
 		<li>
-			<a href="?include=options">Options</a>
+			<a href="?include=backup">Backup</a>
 		</li>
 		<li>
 			<a href="?include=logs">DEBUG / Logs</a>
 		</li>
 		<li>
-			<a href="?include=backup">Backup</a>
+			<a href="?include=mainte">Maintenance</a>
+		</li>
+		<li>
+			<a href="?include=options">Options</a>
 		</li>
 		<li>
 			<a href="?include=phpinfo">PhpInfo();</a>

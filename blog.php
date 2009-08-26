@@ -18,6 +18,7 @@ $page_num = ceil($row_num/$max_articles);
 ?>
 <div style="float:left;width:580px;">
 <?
+	// for paging
 	if($_GET['page'] == 1 || !isset($_GET['page']))
     {
 		// id, autor, title, content,tags,categories, creation_date
@@ -29,7 +30,7 @@ $page_num = ceil($row_num/$max_articles);
 			$getstring =  "";
         $result2 = mysql_query("SELECT * FROM sil_blog_articles ".$getstring." ORDER BY creation_date DESC LIMIT 0,$max_articles", $connectionid);
         while ($row = mysql_fetch_assoc($result2)) {
-        		$sql = "SELECT * FROM sil_user WHERE ( user = '".$row[autor]."' )";	 
+        		$sql = "SELECT * FROM sil_user WHERE ( id = '".$row[autor]."' )";	 
 				$result = mysql_query ($sql, $connectionid); 
 				$data_profile = mysql_fetch_array ($result);
 				$tags = explode("; ",$row['tags']);
@@ -52,7 +53,7 @@ $page_num = ceil($row_num/$max_articles);
 		 // id, autor, title, content,tags,categories, creation_date
         $result2 = mysql_query("SELECT * FROM sil_blog_articles ORDER BY creation_date DESC LIMIT $start,$max_articles", $connectionid);
         while ($row = mysql_fetch_assoc($result2)) {
-        	$sql = "SELECT * FROM sil_user WHERE ( user = '".$row[autor]."' )";	 
+        	$sql = "SELECT * FROM sil_user WHERE ( id = '".$row[autor]."' )";	 
 			$result = mysql_query ($sql, $connectionid); 
 			$data_profile = mysql_fetch_array ($result);
 			$tags = explode("; ",$row['tags']);
@@ -80,11 +81,11 @@ $page_num = ceil($row_num/$max_articles);
 		$i = 0;
 		while ($row = mysql_fetch_assoc($result)) {
 			$i++;
-			$sql = "SELECT * FROM sil_user WHERE ( user = '".$row[autor]."' )";	 
+			$sql = "SELECT * FROM sil_user WHERE ( id = '".$row[autor]."' )";	 
 $result2 = mysql_query ($sql, $connectionid); 
 $data_profile = mysql_fetch_array ($result2);
 			echo "<li><a href='articles.php?id=".$row["id"]."'>".$row["title"]."</a></li>";
-			echo "<ul><li style='font-size:11px;'>".get_lang("general_by")." <a href=profile.php?id=".$data_profile[id].">".$row["autor"]."</a> ".get_lang("general_on")." ".$row["creation_date"]."</li></ul>";
+			echo "<ul><li style='font-size:11px;'>".get_lang("general_by")." <a href=profile.php?id=".$data_profile[id].">".$data_profile["user"]."</a> ".get_lang("general_on")." ".$row["creation_date"]."</li></ul>";
 			if($i == 5) break;
         }
        	echo "</ul>";
@@ -102,11 +103,11 @@ $data_profile = mysql_fetch_array ($result2);
 			$result2 = mysql_query("SELECT * FROM sil_blog_articles WHERE ( id = ". $row["blogid"].")"); 
 			$row2 = mysql_fetch_assoc($result2);
 			
-			$sql = "SELECT * FROM sil_user WHERE ( user = '".$row[autor]."' )";	 
+			$sql = "SELECT * FROM sil_user WHERE ( id = '".$row[autor]."' )";	 
 $result3 = mysql_query ($sql, $connectionid); 
 $data_profile = mysql_fetch_array ($result3);
 			echo "<li><a href='articles.php?id=".$row2["id"]."'>".$row2["title"]."</a></li>";
-			echo "<ul><li style='font-size:11px;'>".get_lang("general_by")." <a href=profile.php?id=".$data_profile[id].">".$row["autor"]."</a> ".get_lang("general_on")." ".$row["creation_date"]."</li></ul>";
+			echo "<ul><li style='font-size:11px;'>".get_lang("general_by")." <a href=profile.php?id=".$data_profile[id].">".$data_profile["user"]."</a> ".get_lang("general_on")." ".$row["creation_date"]."</li></ul>";
 			if($i == 5) break;
         }
        	echo "</ul>";

@@ -27,7 +27,7 @@ if($_POST["upload"]) {
 	
 	echo '<pre>';
 	if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-	    echo get_lang("profile_upload_succ")." -> ".$uploadfile."\n";
+	    echo get_lang("profile_upload_succ")." <br/>-> ".$uploadfile."\n";
 	} else {
 	    echo get_lang("profile_upload_err")."\n";
 	}

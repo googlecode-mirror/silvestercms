@@ -22,7 +22,7 @@ if($_POST[changed] == true) {
 		
 		fwrite($file, $string);
 		fclose($file);
-		echo "Die Änderungen wurden gespeichert.";
+		echo "Changes have been saved.";
 
 		$connectionid = mysql_connect ($conf[DB][mysql_host], $conf[DB][mysql_user], $conf[DB][mysql_password]); 
 		mysql_select_db ($conf[DB][mysql_database], $connectionid);
@@ -77,6 +77,30 @@ if($_POST[changed] == true) {
 		  PRIMARY KEY  (`id`)
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=15 ;");
 		
+		mysql_query("CREATE TABLE `sil_user_roles` (
+		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `role` text NOT NULL,
+		  `blog_articles_read` int(11) NOT NULL DEFAULT '0',
+		  `blog_articles_write` int(11) NOT NULL DEFAULT '0',
+		  `blog_comments_write` int(11) NOT NULL DEFAULT '0',
+		  `profiles_view` int(11) NOT NULL DEFAULT '1',
+		  `admin_system` int(11) NOT NULL DEFAULT '0',
+		  PRIMARY KEY (`id`)
+		) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;");
+		
+		mysql_query("INSERT INTO `sil_user_roles` (
+			`id`,
+			`role`,
+			`blog_articles_read`,
+			`blog_articles_write`,
+			`blog_comments_write`,
+			`profiles_view`,
+			`admin_system`)
+				VALUES
+				(1,'Administrator',1,1,1,1,1),
+				(2,'User',1,0,1,1,0),
+				(3,'Guest',1,0,0,0,0);");
+		
 		// Definition der Benutzer 
 		$benutzer[0]["user"] = "admin"; 
 		$benutzer[0]["pass"] = "admin";  
@@ -122,5 +146,4 @@ if($_POST[changed] == true) {
 		</form>
 		<?php
 }
-
 ?>

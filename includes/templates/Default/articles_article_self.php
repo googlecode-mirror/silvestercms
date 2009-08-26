@@ -2,7 +2,7 @@
 	<div style="background-color:#F9F9F9;">
 		<div style="position:relative;width:560px;left:10px;"><br>
 			<span style="font-size:25px;"><? echo $data["title"]; ?></span><br>
-			<span style="font-size:10px;"><?php echo get_lang("general_by"); ?> <a href=profile.php?id=<? echo $data_profile[id]; ?>><? echo $data["autor"]; ?></a> <?php echo get_lang("general_on"); ?> <? echo $data["creation_date"]; ?></span><br>
+			<span style="font-size:10px;"><?php echo get_lang("general_by"); ?> <a href=profile.php?id=<? echo $data_profile[id]; ?>><? echo $data_profile[user]; ?></a> <?php echo get_lang("general_on"); ?> <? echo $data["creation_date"]; ?></span><br>
 			<br>
 			<? echo $data["content"]; ?>
 			<br><br>

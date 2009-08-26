@@ -40,13 +40,11 @@
 <script src="silvesterCMS/includes/js/jquery-ui-1.7.2.custom.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function() { 
-	
 	$('input#mybutton').click(function() {
 		$('#tags').append($("#tags_input").val()+'; ');
 	});
 }); 
-
-</script>
+</script> 
 <form action="func_blog.php" method="post">
 <input type="hidden" name="add" value="true" />
  <!-- Gets replaced with TinyMCE, remember HTML in a textarea should be encoded -->
@@ -58,7 +56,7 @@ $(document).ready(function() {
 				&lt;p&gt;
 				Nam nisi elit, cursus in rhoncus sit amet, pulvinar laoreet leo. Nam sed lectus quam, ut sagittis tellus. Quisque dignissim mauris a augue rutrum tempor. Donec vitae purus nec massa vestibulum ornare sit amet id tellus. Nunc quam mauris, fermentum nec lacinia eget, sollicitudin nec ante. Aliquam molestie volutpat dapibus. Nunc interdum viverra sodales. Morbi laoreet pulvinar gravida. Quisque ut turpis sagittis nunc accumsan vehicula. Duis elementum congue ultrices. Cras faucibus feugiat arcu quis lacinia. In hac habitasse platea dictumst. Pellentesque fermentum magna sit amet tellus varius ullamcorper. Vestibulum at urna augue, eget varius neque. Fusce facilisis venenatis dapibus. Integer non sem at arcu euismod tempor nec sed nisl. Morbi ultricies, mauris ut ultricies adipiscing, felis odio condimentum massa, et luctus est nunc nec eros.
 				&lt;/p&gt;
-			</textarea><br /> <br />
+			</textarea><br /> <br /> 
 			Tags: <input type="text" id="tags_input" name="tags_input">&nbsp;<input type="button" id="mybutton" name="mybutton" value="Add"> 
 			<br/><br/><textarea id="tags" name="tags" cols="30" rows="3"></textarea>
 			<br/><br/>Categories: <select name="cate" size="1">
@@ -70,8 +68,6 @@ $(document).ready(function() {
 	  }
       ?>
     	</select>&nbsp;&nbsp;or <a href="?include=blog_cate">click here to get to the category management</a>.
-
-			
 			<br /> <br />
 <input type="submit" value="Send">
 		</div>
@@ -84,19 +80,17 @@ $data = mysql_fetch_array ($result); ?>
 <script src="silvesterCMS/includes/js/jquery-ui-1.7.2.custom.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function() { 
-	
 	$('input#mybutton').click(function() {
 		$('#tags').append($("#tags_input").val()+'; ');
 	});
 }); 
-
 </script>
 <form action="func_blog.php" method="post">
 <input type="hidden" name="edit" value="true" />
 <input type="hidden" name="id" value="<?php echo $_GET["id"]; ?>" />
  <!-- Gets replaced with TinyMCE, remember HTML in a textarea should be encoded -->
 		<div>Title: <input type="text" name="title" size="80" value="<?php echo $data["title"]; ?>"><br /><br />
-			<textarea id="elm1" name="elm1" rows="15" cols="80" style="width: 80%">
+			<textarea  id="elm1" name="elm1" rows="15" cols="80" style="width: 80%">
 				<?php echo $data["content"]; ?>
 			</textarea><br /> <br />
 			Tags:<input type="text" id="tags_input" name="tags_input">&nbsp;<input type="button" id="mybutton" name="mybutton" value="Add"> 
@@ -135,7 +129,7 @@ echo $data["title"];
 	echo "</h1><br />";
 	$sql = "SELECT * FROM sil_blog_articles ORDER BY id DESC"; 
 	$result = mysql_query ($sql, $connectionid); 
-	echo "<table width=100%><tr><td>id</td><td>title</td><td>autor</td><td>creation date</td><td>categories</td></tr>";
+	echo "<table width=100%><tr><td>id</td><td>title</td><td>autor id</td><td>creation date</td><td>categories</td></tr>";
 	while ($data = mysql_fetch_array ($result)) {
 		echo "<tr>";
 		echo "<td>".$data["id"]."</td>";

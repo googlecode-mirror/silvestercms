@@ -3,13 +3,15 @@ include_once("config.php");
 
 function sil_maintenance() {
 	global $conf;
-	if(!isset($_GET[$conf[System][mainte_keyword]]))  {
+	if($_GET["mainte_pw"]!=$conf[System][mainte_keyword])  {
 		if($_SESSION["user_role"] != "Administrator") {
 			if($conf[System][maintenance]) {
 				echo get_lang("system_maintenance").$conf[Page][pagename].get_lang("system_maintenance_2")."<br><br>";
 				exit();
 			}
 		}
+	} else {
+		output_add_rewrite_var('mainte_pw', $conf[System][mainte_keyword]);
 	}
 }
 

@@ -5,7 +5,7 @@ include_once($conf[System][path]."includes/templates/".$conf[Page][design]."/hea
 
 if(isset($_POST["add"])) {
 	$sql_comments_insert = "INSERT INTO sil_blog_comments (blogid, autor, title, content)
-				VALUES ('".$_GET["id"]."', '".$_SESSION["user_name"]."', '".$_POST["title"]."', '".$_POST["content"]."')"; 
+				VALUES ('".$_GET["id"]."', '".$_SESSION["user_id"]."', '".$_POST["title"]."', '".$_POST["content"]."')"; 
 	mysql_query ($sql_comments_insert, $connectionid); 
 }
 
@@ -14,7 +14,7 @@ $sql = "SELECT * FROM sil_blog_articles WHERE ( id = ".$_GET["id"]." )";
 $result = mysql_query ($sql, $connectionid); 
 $data = mysql_fetch_array ($result);
 
-$sql = "SELECT * FROM sil_user WHERE ( user = '".$data[autor]."' )";	 
+$sql = "SELECT * FROM sil_user WHERE ( id = '".$data[autor]."' )";	 
 $result = mysql_query ($sql, $connectionid); 
 $data_profile = mysql_fetch_array ($result);
 
@@ -32,14 +32,14 @@ $result = mysql_query ($sql, $connectionid);
 $row_num = mysql_num_rows($result); 
 $max_articles = 15; 
 $page_num = ceil($row_num/$max_articles);
-
+	// for paging
 	if($_GET['page'] == 1 || !isset($_GET['page']))
     {
 		// id, autor, title, content,tags,categories, creation_date
         $result2 = mysql_query("SELECT * FROM sil_blog_comments WHERE ( blogid = '".$_GET["id"]."') ORDER BY creation_date ASC LIMIT 0,$max_articles", $connectionid);
         while ($row = mysql_fetch_assoc($result2)) {
         		// For profile links
-        		$sql = "SELECT * FROM sil_user WHERE ( user = '".$row[autor]."' )";	 
+        		$sql = "SELECT * FROM sil_user WHERE ( id = '".$row[autor]."' )";	 
 				$result = mysql_query ($sql, $connectionid); 
 				$data = mysql_fetch_array ($result);
 				
@@ -60,7 +60,7 @@ $page_num = ceil($row_num/$max_articles);
         $result2 = mysql_query("SELECT * FROM sil_blog_comments WHERE ( blogid = '".$_GET["id"]."') ORDER BY creation_date ASC LIMIT $start,$max_articles", $connectionid);
         while ($row = mysql_fetch_assoc($result2)) {
         		// For profile links
-        		$sql = "SELECT * FROM sil_user WHERE ( user = '".$row[autor]."' )";	 
+        		$sql = "SELECT * FROM sil_user WHERE ( id = '".$row[autor]."' )";	 
 				$result = mysql_query ($sql, $connectionid); 
 				$data = mysql_fetch_array ($result);
 
@@ -99,11 +99,11 @@ $page_num = ceil($row_num/$max_articles);
 		$i = 0;
 		while ($row = mysql_fetch_assoc($result)) {
 			$i++;
-			$sql = "SELECT * FROM sil_user WHERE ( user = '".$row[autor]."' )";	 
+			$sql = "SELECT * FROM sil_user WHERE ( id = '".$row[autor]."' )";	 
 $result2 = mysql_query ($sql, $connectionid); 
 $data_profile = mysql_fetch_array ($result2);
 			echo "<li><a href='articles.php?id=".$row["id"]."'>".$row["title"]."</a></li>";
-			echo "<ul><li style='font-size:11px;'>".get_lang("general_by")." <a href=profile.php?id=".$data_profile[id].">".$row["autor"]."</a> ".get_lang("general_on")." ".$row["creation_date"]."</li></ul>";
+			echo "<ul><li style='font-size:11px;'>".get_lang("general_by")." <a href=profile.php?id=".$data_profile[id].">".$data_profile["user"]."</a> ".get_lang("general_on")." ".$row["creation_date"]."</li></ul>";
 			if($i == 5) break;
         }
        	echo "</ul>";
@@ -121,11 +121,11 @@ $data_profile = mysql_fetch_array ($result2);
 			$result2 = mysql_query("SELECT * FROM sil_blog_articles WHERE ( id = ". $row["blogid"].")"); 
 			$row2 = mysql_fetch_assoc($result2);
 			
-			$sql = "SELECT * FROM sil_user WHERE ( user = '".$row[autor]."' )";	 
+			$sql = "SELECT * FROM sil_user WHERE ( id = '".$row[autor]."' )";	 
 $result3 = mysql_query ($sql, $connectionid); 
 $data_profile = mysql_fetch_array ($result3);
 			echo "<li><a href='articles.php?id=".$row2["id"]."'>".$row2["title"]."</a></li>";
-			echo "<ul><li style='font-size:11px;'>".get_lang("general_by")." <a href=profile.php?id=".$data_profile[id].">".$row["autor"]."</a> ".get_lang("general_on")." ".$row["creation_date"]."</li></ul>";
+			echo "<ul><li style='font-size:11px;'>".get_lang("general_by")." <a href=profile.php?id=".$data_profile[id].">".$data_profile["user"]."</a> ".get_lang("general_on")." ".$row["creation_date"]."</li></ul>";
 			if($i == 5) break;
         }
        	echo "</ul>";
