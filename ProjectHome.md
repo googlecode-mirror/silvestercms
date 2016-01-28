@@ -1,0 +1,1 @@
+A content system with blog, forum, custom page and eventually a built-in google-talk alike chatclient with shared userbases for small social networks.
